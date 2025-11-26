@@ -1,60 +1,299 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bioinformatics Sharing Hub</title>
-<style>
- body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; background-color: #f5f5f5; }
- header { background-color: #006d77; color: #fff; padding: 20px 40px; }
- nav a { color: #fff; margin-right: 15px; text-decoration: none; }
- main { max-width: 800px; margin: 20px auto; padding: 20px; background-color: #fff; }
- section { margin-bottom: 30px; }
- h1, h2 { color: #006d77; }
- footer { text-align: center; padding: 20px; background-color: #006d77; color: #fff; }
- ul { list-style-type: disc; margin-left: 20px; }
-</style>
-<style>
-  header {
-    background-image: url('assets/导航栏背景.png'); 
-    background-size: cover;
-    background-position: center;
-    color: white;
-  }
-</style>
-
-</head>
-<body>
-<header>
-  <h1>Bioinformatics Sharing Hub</h1>
-  <nav>
-    <a href="#intro">Introduction</a>
-    <a href="#resources">Resources</a>
-    <a href="#contribute">Contribute</a>
-  </nav>
-</header>
-<main>
-  <section id="intro">
-    <h2>Introduction</h2>
-    <p>Welcome to the Bioinformatics Sharing Hub! This site is a space for researchers, students, and enthusiasts to discover and share useful bioinformatics resources, tools, and knowledge. Whether you're just starting out or you’re a seasoned bioinformatician, you'll find valuable links and information here.</p>
-  </section>
-  <section id="resources">
-    <h2>Featured Resources</h2>
-    <p>Here are some carefully curated bioinformatics resources to get you started:</p>
-    <ul>
-      <li><a href="https://github.com/danielecook/Awesome-Bioinformatics" target="_blank">Awesome Bioinformatics</a> – A curated list of bioinformatics software, resources, and libraries.</li>
-      <li><a href="https://rosalind.info" target="_blank">Rosalind</a> – An educational platform for learning bioinformatics through problem solving.</li>
-      <li><a href="https://expasy.org" target="_blank">Expasy</a> – An integrative portal providing access to over 160 biological databases and tools.</li>
-      <li><a href="https://docs.github.com/pages" target="_blank">GitHub Pages Documentation</a> – Learn how to publish your own static site using GitHub Pages.</li>
-    </ul>
-  </section>
-  <section id="contribute">
-    <h2>Contribute</h2>
-    <p>This site is open to contributions! If you know of a great bioinformatics resource or have created one yourself, feel free to contribute by submitting a pull request to this repository. Together we can build a comprehensive, community-driven collection of tools and knowledge.</p>
-  </section>
-</main>
-<footer>
-  <p>&copy; 2025 Bioinformatics Sharing Hub. Built with GitHub Pages.</p>
-</footer>
-</body>
-</html>
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/index.html b/index.html
+index 78e401b08d0a2a02c2982f3f47cbade32093b419..c3408307a974ce565fd66de991d8c9d8f416ad5f 100644
+--- a/index.html
++++ b/index.html
+@@ -1,60 +1,260 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Bioinformatics Sharing Hub</title>
++<link rel="preconnect" href="https://fonts.googleapis.com">
++<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+ <style>
+- body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; background-color: #f5f5f5; }
+- header { background-color: #006d77; color: #fff; padding: 20px 40px; }
+- nav a { color: #fff; margin-right: 15px; text-decoration: none; }
+- main { max-width: 800px; margin: 20px auto; padding: 20px; background-color: #fff; }
+- section { margin-bottom: 30px; }
+- h1, h2 { color: #006d77; }
+- footer { text-align: center; padding: 20px; background-color: #006d77; color: #fff; }
+- ul { list-style-type: disc; margin-left: 20px; }
+-</style>
+-<style>
++  :root {
++    --bg: #0b1624;
++    --bg-2: #0f2135;
++    --panel: rgba(17, 41, 66, 0.9);
++    --glow: #42e6c0;
++    --accent: #60a5fa;
++    --muted: #9bb3d6;
++    --text: #e8f0ff;
++  }
++
++  * { box-sizing: border-box; }
++
++  body {
++    margin: 0;
++    padding: 0;
++    line-height: 1.7;
++    font-family: 'Inter', system-ui, -apple-system, sans-serif;
++    color: var(--text);
++    background:
++      radial-gradient(circle at 15% 20%, rgba(96, 165, 250, 0.12), transparent 40%),
++      radial-gradient(circle at 80% 0%, rgba(66, 230, 192, 0.14), transparent 35%),
++      linear-gradient(135deg, #08101c 0%, #0c1b2c 35%, #0a1320 100%);
++    min-height: 100vh;
++  }
++
+   header {
+-    background-image: url('assets/导航栏背景.png'); 
++    position: relative;
++    overflow: hidden;
++    padding: 38px 48px 48px;
++    background: linear-gradient(110deg, rgba(12, 41, 66, 0.9), rgba(10, 25, 38, 0.9));
++    border-bottom: 1px solid rgba(96, 165, 250, 0.16);
++  }
++
++  header::before {
++    content: "";
++    position: absolute;
++    inset: 0;
++    background-image: url('assets/导航栏背景.png');
+     background-size: cover;
+     background-position: center;
+-    color: white;
++    opacity: 0.22;
++    filter: saturate(1.2);
++    pointer-events: none;
++  }
++
++  .header-inner {
++    position: relative;
++    max-width: 1100px;
++    margin: 0 auto;
++    display: flex;
++    flex-direction: column;
++    gap: 18px;
++  }
++
++  h1 {
++    margin: 0;
++    font-family: 'Space Grotesk', 'Inter', sans-serif;
++    font-weight: 600;
++    letter-spacing: 0.03em;
++    color: #dff7ff;
++    text-shadow: 0 10px 40px rgba(66, 230, 192, 0.35);
++  }
++
++  nav {
++    display: flex;
++    gap: 18px;
++  }
++
++  nav a {
++    position: relative;
++    color: var(--text);
++    text-decoration: none;
++    font-weight: 500;
++    padding: 10px 14px;
++    border-radius: 10px;
++    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
++    background: rgba(255, 255, 255, 0.02);
++    border: 1px solid rgba(96, 165, 250, 0.18);
++  }
++
++  nav a::after {
++    content: "";
++    position: absolute;
++    inset: 0;
++    border-radius: 10px;
++    box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.35);
++    opacity: 0;
++    transition: box-shadow 0.25s ease, opacity 0.25s ease;
++  }
++
++  nav a:hover {
++    color: #eafffb;
++    transform: translateY(-1px);
++    background: rgba(66, 230, 192, 0.08);
++  }
++
++  nav a:hover::after {
++    opacity: 1;
++    box-shadow: 0 10px 30px 3px rgba(66, 230, 192, 0.18);
++  }
++
++  main {
++    max-width: 1100px;
++    margin: 32px auto 48px;
++    padding: 0 24px;
++    display: grid;
++    gap: 24px;
++  }
++
++  .panel {
++    background: var(--panel);
++    border: 1px solid rgba(96, 165, 250, 0.18);
++    border-radius: 16px;
++    padding: 24px 26px;
++    box-shadow: 0 15px 60px rgba(5, 12, 22, 0.6);
++    backdrop-filter: blur(6px);
++  }
++
++  h2 {
++    margin-top: 0;
++    font-family: 'Space Grotesk', 'Inter', sans-serif;
++    letter-spacing: 0.02em;
++    color: #d1e9ff;
++  }
++
++  p { color: var(--muted); margin: 0 0 12px; }
++
++  .resource-grid {
++    display: grid;
++    gap: 16px;
++    margin-top: 14px;
++  }
++
++  .resource {
++    padding: 16px 18px;
++    border-radius: 12px;
++    border: 1px solid rgba(66, 230, 192, 0.18);
++    background: linear-gradient(120deg, rgba(96, 165, 250, 0.05), rgba(66, 230, 192, 0.05));
++    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
++  }
++
++  .resource:hover {
++    transform: translateY(-2px);
++    border-color: rgba(66, 230, 192, 0.38);
++    box-shadow: 0 10px 30px rgba(66, 230, 192, 0.16);
++  }
++
++  .resource a {
++    color: #c2ecff;
++    font-weight: 600;
++    text-decoration: none;
++  }
++
++  .resource a:hover { color: #9de8d9; }
++
++  .chips {
++    display: flex;
++    flex-wrap: wrap;
++    gap: 10px;
++    margin-top: 12px;
++  }
++
++  .chip {
++    padding: 8px 12px;
++    border-radius: 999px;
++    border: 1px solid rgba(96, 165, 250, 0.25);
++    color: #d7e8ff;
++    background: rgba(255, 255, 255, 0.03);
++    font-size: 0.92rem;
++  }
++
++  footer {
++    text-align: center;
++    padding: 22px 20px 32px;
++    color: var(--muted);
++    background: linear-gradient(0deg, rgba(4, 10, 18, 0.9) 0%, rgba(4, 10, 18, 0.65) 100%);
++    border-top: 1px solid rgba(96, 165, 250, 0.15);
++  }
++
++  .tagline {
++    margin: 0;
++    max-width: 720px;
++    color: #a8c4e9;
++  }
++
++  @media (max-width: 720px) {
++    header { padding: 28px 22px 38px; }
++    nav { flex-wrap: wrap; }
++    nav a { padding: 9px 12px; }
++    .panel { padding: 20px; }
+   }
+ </style>
+ 
+ </head>
+ <body>
+ <header>
+-  <h1>Bioinformatics Sharing Hub</h1>
+-  <nav>
+-    <a href="#intro">Introduction</a>
+-    <a href="#resources">Resources</a>
+-    <a href="#contribute">Contribute</a>
+-  </nav>
++  <div class="header-inner">
++    <h1>Bioinformatics Sharing Hub</h1>
++    <p class="tagline">Discover curated tools, datasets, and learning materials for modern bioinformatics, all in one elevated hub.</p>
++    <nav>
++      <a href="#intro">Introduction</a>
++      <a href="#resources">Resources</a>
++      <a href="#contribute">Contribute</a>
++    </nav>
++  </div>
+ </header>
+ <main>
+-  <section id="intro">
++  <section id="intro" class="panel">
+     <h2>Introduction</h2>
+-    <p>Welcome to the Bioinformatics Sharing Hub! This site is a space for researchers, students, and enthusiasts to discover and share useful bioinformatics resources, tools, and knowledge. Whether you're just starting out or you’re a seasoned bioinformatician, you'll find valuable links and information here.</p>
++    <p>Welcome to the Bioinformatics Sharing Hub—a space for researchers, students, and enthusiasts to explore high-quality bioinformatics resources, tools, and knowledge. Whether you're just starting out or you’re a seasoned bioinformatician, you'll find actionable links and insight here.</p>
++    <div class="chips">
++      <span class="chip">Data analysis</span>
++      <span class="chip">Genomics</span>
++      <span class="chip">Workflows</span>
++      <span class="chip">Visualization</span>
++    </div>
+   </section>
+-  <section id="resources">
++  <section id="resources" class="panel">
+     <h2>Featured Resources</h2>
+-    <p>Here are some carefully curated bioinformatics resources to get you started:</p>
+-    <ul>
+-      <li><a href="https://github.com/danielecook/Awesome-Bioinformatics" target="_blank">Awesome Bioinformatics</a> – A curated list of bioinformatics software, resources, and libraries.</li>
+-      <li><a href="https://rosalind.info" target="_blank">Rosalind</a> – An educational platform for learning bioinformatics through problem solving.</li>
+-      <li><a href="https://expasy.org" target="_blank">Expasy</a> – An integrative portal providing access to over 160 biological databases and tools.</li>
+-      <li><a href="https://docs.github.com/pages" target="_blank">GitHub Pages Documentation</a> – Learn how to publish your own static site using GitHub Pages.</li>
+-    </ul>
++    <p>Carefully selected essentials to accelerate your next experiment or lesson:</p>
++    <div class="resource-grid">
++      <div class="resource">
++        <a href="https://github.com/danielecook/Awesome-Bioinformatics" target="_blank">Awesome Bioinformatics</a>
++        <p>A community-driven list of software, libraries, and references spanning genomics, proteomics, and more.</p>
++      </div>
++      <div class="resource">
++        <a href="https://rosalind.info" target="_blank">Rosalind</a>
++        <p>Learn bioinformatics through problem solving with graded challenges and step-by-step feedback.</p>
++      </div>
++      <div class="resource">
++        <a href="https://expasy.org" target="_blank">Expasy</a>
++        <p>An integrative portal with access to over 160 biological databases, tools, and curated pipelines.</p>
++      </div>
++      <div class="resource">
++        <a href="https://docs.github.com/pages" target="_blank">GitHub Pages Documentation</a>
++        <p>Publish your own static site with GitHub Pages and showcase new discoveries or lab resources.</p>
++      </div>
++    </div>
+   </section>
+-  <section id="contribute">
++  <section id="contribute" class="panel">
+     <h2>Contribute</h2>
+-    <p>This site is open to contributions! If you know of a great bioinformatics resource or have created one yourself, feel free to contribute by submitting a pull request to this repository. Together we can build a comprehensive, community-driven collection of tools and knowledge.</p>
++    <p>Know a great tool, data portal, or tutorial? Contribute by submitting a pull request. Together we can build a comprehensive, community-driven collection that keeps pace with the field.</p>
++    <p>Suggestions for new sections, featured datasets, or workflow templates are welcome—this hub grows with your expertise.</p>
+   </section>
+ </main>
+ <footer>
+   <p>&copy; 2025 Bioinformatics Sharing Hub. Built with GitHub Pages.</p>
+ </footer>
+ </body>
+ </html>
+ 
+EOF
+)
